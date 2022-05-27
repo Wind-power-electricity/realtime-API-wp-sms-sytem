@@ -8,6 +8,7 @@ import socketIO from 'socket.io';
 
 import orderRouter from './controllers/order'
 import mongoLoader from './config/db';
+import smsRouter from './controllers/sms';
 
 const app = express()
 const server = http.createServer( app )
@@ -39,6 +40,7 @@ export default ( async () => {
         app.use( express.json() )
         app.use( cors() )
         app.use( '/orders', orderRouter )
+        app.use( '/sms', smsRouter )
         app.get( '/', ( req, res ) => {
             res.send( 'Hello' )
         } )
