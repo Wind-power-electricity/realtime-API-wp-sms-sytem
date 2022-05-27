@@ -1,10 +1,21 @@
 import mongoose from 'mongoose'
-import {DB_URL} from './variables'
+import { DB_URL } from './variables'
 
-mongoose.connect(DB_URL, {
-  useNewUrlParser:true,
-  useUnifiedTopology:true
-}, () => {
-  console.log(DB_URL);
-  console.log(`DB up and running`);
-})
+const mongoLoader = async () => {
+    await mongoose
+        .connect( DB_URL, {
+            useCreateIndex: true,
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useFindAndModify: false
+        } )
+        .then( () => {
+            console.log( 'Mongo DB connected successfully' );
+        } )
+        .catch( ( err ) => {
+            console.error( 'Failed connect Mongo DB', err );
+            process.exit();
+        } );
+};
+
+export default mongoLoader;
