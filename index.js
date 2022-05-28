@@ -1,7 +1,7 @@
 // noinspection JSValidateTypes,JSUnusedGlobalSymbols
 
 import express from 'express'
-import { PORT } from './config/variables'
+import { PORT, USB_3G_PORT } from './config/variables'
 import cors from 'cors'
 import http from 'http'
 import socketIO from 'socket.io';

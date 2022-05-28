@@ -13,3 +13,5 @@ MONGO_DB_DBNAME=store
 ```shell
 npm start
 ```
+
+npm i -g windows-build-tools
